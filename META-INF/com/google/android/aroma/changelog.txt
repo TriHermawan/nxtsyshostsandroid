@@ -1,0 +1,15 @@
+<@center><b>[ Read!! ]</b></@>
+
+Not all work (provider)
+
+Hosts (Stock) : Stock Android hosts
+Hosts-Ads (Adblock) : Hosts for Block Ads
+Hosts18 (Adblock&18+) : Hosts for Block Ads and unblock site (18+) (not all)
+
+<@center><b>[ 24.01.2018/v2.0 Beta ]</b></@>
+
+- Add to AROMA Installer
+- Add Hosts (Android-Stock)
+- Add Hosts-Ads (Adblock)
+- Add Hosts18 (Adblock&18+)
+

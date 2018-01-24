@@ -1,0 +1,118 @@
+#
+#	███╗   ██╗██╗  ██╗████████╗███████╗██╗   ██╗███████╗
+#	████╗  ██║╚██╗██╔╝╚══██╔══╝██╔════╝╚██╗ ██╔╝██╔════╝
+#	██╔██╗ ██║ ╚███╔╝    ██║   ███████╗ ╚████╔╝ ███████╗
+#	██║╚██╗██║ ██╔██╗    ██║   ╚════██║  ╚██╔╝  ╚════██║
+#	██║ ╚████║██╔╝ ██╗   ██║   ███████║   ██║   ███████║ By @Number666
+#	╚═╝  ╚═══╝╚═╝  ╚═╝   ╚═╝   ╚══════╝   ╚═╝   ╚══════╝ --------------
+#
+
+ini_set("force_colorspace","rgba");
+anisplash(1,
+"splash/material5", 500,
+"splash/material4", 500,
+"splash/material3", 500,
+"splash/material2", 500,
+"splash/material1", 500,
+"splash/material", 300);
+
+fontresload( "0", "ttf/droid.ttf", "10" );
+fontresload( "1", "ttf/droid.ttf", "15" ); 
+
+theme("zetsubou");
+
+ini_set("text_next", 				"Next");
+ini_set("text_back", 				"Back");
+ini_set("text_no", 					"No");
+ini_set("text_yes", 				"Yes");
+ini_set("text_quit", 				"Quit");
+ini_set("text_quit_msg", 			"Do you really want quit NxtSys Hosts?");
+ini_set("text_about", 				"About");
+
+#Information
+
+ini_set("rom_name",             "NxtSys Hosts Mod");
+ini_set("rom_author",           "@Number666");
+ini_set("rom_device",           "Android 6.x.x - 7.x.x");
+
+#Aroma
+
+ini_set("rom_version",          "2.0 Beta");
+ini_set("rom_date",             "24.January.2018");
+
+#Color
+
+#Welcome
+viewbox(
+  "Welcome",
+  " \n"+
+ ini_get("rom_name") + " for " + ini_get("rom_device") +  " \n\n\n\n\n\n"+
+  "  <#selectbg_g><b>Version</b> : " + ini_get("rom_version") + "\n"+
+  "  <b>Release date</b> : " + ini_get("rom_date") +  "\n"+
+  "  <b>Developer</b> : " + ini_get("rom_author") + " \n"+
+  "  <b>Support</b> : " + ini_get("rom_device") + "\n\n\n\n\n\n\n\n\n\n\n\n\n"+
+  "Press <b>Next</b> to start inject.</#>",
+  "@welcome"
+);
+
+agreebox(
+	"Terms of Use",
+	"If you agree with this terms of use just press ''ОК'' : ",
+	"@text",
+	"" + readfile_aroma("agreement.txt"),
+	"ОК",
+	"To start inject you should press OK button."
+);
+
+textbox(
+	"Changelog",
+	"This is full changelog :",
+	"@text",
+	resread("changelog.txt")
+);
+
+#[ Selectboxes ]
+checkbox(
+	"Inject hosts",
+	"Select hosts you want to inject :",
+	"@device",
+	"checkbox1.prop",
+		"CHECK AND CHOOSE ONE",		"", 	2,
+		#----------------------------------[       CheckBox        ]-----------------------------------#
+ # TITLE            |  SUBTITLE                                                 | Initial Value #
+ #------------------+-----------------------------------------------------------+---------------#
+  "Hosts (Stock)",                  "Andorid Stock",                                   0,       #-- item1.1
+  "Hosts-Ads (Adblock)",		    "Mod by Adaway+NxtSys",                            0,       #-- item1.2
+  "Hosts18 (Adblock&18+)",	        "Mod by Adaway+NxtSys",	                           0       #-- item1.3
+ #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+);
+
+ini_set("text_next", "Inject");
+textbox(
+  "\nInstallation",
+  "<@center><b>\nAre you ready to Inject hosts ?</b>\n\n</@>",
+  "",
+  "\nPress <b>Inject</b> to perform the inject.\n\n" +
+  "If you want to review or change any of your settings, press <b>Back</b>."
+);
+
+ini_set("text_next", "Next");
+
+setvar("retstatus",
+install(
+  "\nInjected",
+  "<@center>\nInject hosts by NxtSys\nPlease wait...</@>",
+  "")
+);
+
+# Set Next Text for Finish
+ini_set("text_next", "Finish");
+
+viewbox(
+   "Inject Complete!",
+   "Success!\n\n\n\n"+
+   "NOTE!!\n"+
+   "- Not for all work provider\n"+
+   " ",
+   "icons/info"
+);
